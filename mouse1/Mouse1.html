@@ -10,17 +10,17 @@
   <body>
     <a-scene
       embedded
-      mindar-image="imageTargetSrc:./mouse1.mind; autoStart: true"
+      mindar-image="imageTargetSrc:qrprueba/mouse1.mind; autoStart: true"
       color-space="sRGB"
       renderer="colorManagement: true; physicallyCorrectLights: true"
       vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: false"
+      device-orientation-permission-ui="enabled: true"
     >
       <a-assets timeout="300">
         <a-asset-item id="greatWaveModel" src="./mouse1.glb"></a-asset-item>
       </a-assets>
 
-      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: true"></a-camera>
 
       <a-entity mindar-image-target="targetIndex: 0">
         <a-entity
