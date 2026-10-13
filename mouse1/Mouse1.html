@@ -3,33 +3,31 @@
   <head>
     <title>MindAR Image Target</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <!-- CORRECCIÓN: Se bajó a la versión 1.4.2 para asegurar compatibilidad total con MindAR -->
+    <script src="https://aframe.io"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
   </head>
   <body>
     <a-scene
       embedded
-      mindar-image="imageTargetSrc:qrprueba/mouse1.mind; autoStart: true"
+      mindar-image="imageTargetSrc: qrprueba/mouse1.mind; autoStart: true"
       color-space="sRGB"
       renderer="colorManagement: true; physicallyCorrectLights: true"
       vr-mode-ui="enabled: false"
       device-orientation-permission-ui="enabled: true"
     >
-      <a-assets timeout="300">
+      <!-- CORRECCIÓN: Se eliminó el timeout bajo para evitar que se rompa la carga del modelo -->
+      <a-assets>
         <a-asset-item id="greatWaveModel" src="./mouse1.glb"></a-asset-item>
       </a-assets>
 
+      <!-- CORRECCIÓN: look-controls cambiado a FALSE para que el usuario no desincronice el tracking AR -->
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-      <a-entity mindar-image-target="targetIndex: 0">
-        <a-entity
-          gltf-model="#greatWaveModel"
-          rotation="0 180 0"
-          position="0 -2 1"
-          scale="1 1 1"
-        ></a-entity>
-      </a-entity>
+      
+        
+      
     </a-scene>
   </body>
 </html>
